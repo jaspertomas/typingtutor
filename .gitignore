@@ -1,0 +1,10 @@
+src/models/
+build/
+src/scratch/
+models/
+/dist/
+src/inputstrings/
+output/
+src/output/
+outputbackup/
+src/apis/
