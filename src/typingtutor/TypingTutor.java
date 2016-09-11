@@ -5,7 +5,6 @@
  */
 package typingtutor;
 
-import java.util.Set;
 
 /**
  *
@@ -18,7 +17,9 @@ public class TypingTutor {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int lessonindex=10;
+        int lessonindex=11-1;
+        int maxrows=15;
+        int rows=0;
         String outputmultiline[]={};
         String output="";
         Integer length=0;
@@ -35,6 +36,7 @@ public class TypingTutor {
                 {
                     //turn the space into a newline
                     output+="\n";
+                    rows++;
                     length=0;
                     wordlength=0;
                 }
@@ -56,7 +58,9 @@ public class TypingTutor {
                 length++;
                 wordlength++;
             }
+            if(rows==maxrows && lessonindex!=10)break;
         }
+        
         //remove double spaces
         while(output.contains("  "))output=output.replace("  ", " ");
 
