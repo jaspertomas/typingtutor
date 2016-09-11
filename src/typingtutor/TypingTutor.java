@@ -23,17 +23,38 @@ public class TypingTutor {
         String output="";
         Integer length=0;
         Integer maxlength=50;
+        Integer wordlength=0;
+        Integer minwordlength=4;
         for(Character c:Constants.lessonsong.toCharArray())
         {
-            if(contains2(Constants.lessonkeys[lessonindex],Character.toLowerCase(c)))
+            //only if c is a space
+            if(c==' ')
+            {
+                //if line is already greater than max length, cut it off
+                if(length>=maxlength)
+                {
+                    //turn the space into a newline
+                    output+="\n";
+                    length=0;
+                    wordlength=0;
+                }
+                //if word is too short 
+                //except for full keyboard
+                else if(wordlength<=minwordlength && lessonindex!=10)
+                {
+                    //do not add the space
+                }
+                else
+                {
+                    output+=c;
+                    wordlength=0;
+                }
+            }
+            else if(contains2(Constants.lessonkeys[lessonindex],Character.toLowerCase(c)))
             {
                 output+=c;
                 length++;
-            }
-            if(length>=maxlength && c==' ')
-            {
-                output+="\n";
-                length=0;
+                wordlength++;
             }
         }
         //remove double spaces
